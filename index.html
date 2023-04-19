@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <!--<title>Cleveland Plain Dealer | Cleveland, Ohio Newspaper</title>-->
+        <title>My Website</title>
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/index.css">
+        <!-- JS -->
+        <script src="js/jquery-3.6.4.js"></script>
+        <script src="js/index.js"></script>
+    </head>
+    <body>
+        <header class="header space_between">
+            <div class="left_menu">
+                <img class ="main_menu_logo" onclick="set_main_menu()" src="img/menu.svg" height="26">
+                <div class="drop_left_menu" onclick="set_weather()">
+                    <span style="font-size: 14px;">Set weather&nbsp;</span>
+                    <img id="chevron_weather" src="img/chevron_down.png" height="20">
+                </div>
+                <img class="small_logo" src="img/logo_small.svg">
+                <div class="drop_weather" onmouseleave="close_weather()">
+                    <div class="space_between">
+                        <h3>Customize Your Weather&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+                        <button class="drop_weather_exit_button" onclick="close_weather()"><h3>X</h3></button>
+                    </div>
+                    <div class="space_between" style="width: 100%;"><p>Set Your Location:</p></div>
+                    <br>
+                    <input class="input_weather" type="text" placeholder="Enter City Zone etc..">
+                    <br>
+                    <button class="weather_submit_btn">Submit</button>
+                </div>
+                <!--  onmouseleave="close_main_menu()"  nel div class="main_menu"-->
+                <div class="main_menu">
+                    <ul class="menu_tendina">
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()">
+                            <div class="container_search">
+                                <img class="search_icon" src="img/lente.svg">
+                                <input type="search" placeholder="Search latest news" style="border: none; background-color: transparent; outline: none;">
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Home</a></li>
+                        <li class="elemento_menu_tendina" id="Set_weather_li" onmouseenter="show_sub_menu()" onclick="set_weather(),close_main_menu()">Set Weather</li>
+                        <li class="elemento_menu_tendina" id="news" onmouseenter="show_sub_menu(1)">
+                            <a href="#">News</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <div class="sub_menu" id="news_menu" >
+                                <ul class="menu_tendina">
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Metro</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Support Cleveland.com</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">The Plain Dealer</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Weather</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Health & medical</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Crime</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Data Central</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Columnists</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Courts</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">nation</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">World</a></li>
+                                    <li class="elemento_menu_tendina" id="Special_reports" onmouseenter="show_sub_menu2(1)">
+                                        <a classhref="#">Special Reports</a>
+                                        <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                                        <div class="sub_menu2" id="Special_Report_menu">
+                                            <ul class="menu_tendina">
+                                                <li class="elemento_menu_tendina" ><a href="#">A Greater Cleveland</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">A Critical Choice Nursing Home care</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">At Any (Court) Cost</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">Cleveland's Bike Life</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">Dear Cleveland</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">Heroin's human Toll</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">Justice for All Ball Reform</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">Know the RX Opioid addiction in Ohio</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">Recovering Hope</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">Remaking the Q</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">Stolen in the Suburbs</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">City Club of Cleveland</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Cleveland Promise</a></li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Podcast</a></li>
+                        <li class="elemento_menu_tendina" id="Politics&Elections" onmouseenter="show_sub_menu(2)">
+                            <a href="#">Politics & Elections</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <div class="sub_menu" id="PoliticsElections_menu" onmouseleave="show_sub_menu()">
+                                <ul class="menu_tendina">
+                                    <li class="elemento_menu_tendina"><a href="#">State Politics</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">National Politics & Elections</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Cleveland City Hall</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Cuyahoga County Insider</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Out of line : Gerrymandering in Ohio</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Special Report : Ohio Matters</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" id="Local_news" onmouseenter="show_sub_menu(3)">
+                            <a href="#">Local news</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <div class="sub_menu" id="Local_news_menu" onmouseleave="show_sub_menu()">
+                                <ul class="menu_tendina" >
+                                    <li class="elemento_menu_tendina"><a href="#">Akron</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Brunswick Sun</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Chagrin Solon Sun</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Medina Sun</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">News Sun</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Parma Sun Post</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Sun Messenger</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Sun news</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Sun Press</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Sun Post Herald</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Sun Sentinel</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Sun Star Courier</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">West Shore Sun</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">More East Slide</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">More West Side</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" id="Opinion" onmouseenter="show_sub_menu(4)">
+                            <a href="#">Opinion</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <div class="sub_menu" id="Opinion_menu" onmouseleave="show_sub_menu()">
+                                <ul class="menu_tendina" >
+                                    <li class="elemento_menu_tendina"><a href="#">Letters to the Editor</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Jeff Darcy's Cartoons</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">More Columnists</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" id="Business" onmouseenter="show_sub_menu(5)">
+                            <a href="#">Business</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <div class="sub_menu" id="Business_menu" onmouseleave="show_sub_menu()">
+                                <ul class="menu_tendina">
+                                    <li class="elemento_menu_tendina"><a href="#">Energy</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Consumer Affairs</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Personal Finance</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Top Workplaces</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" id="Sports" onmouseenter="show_sub_menu(6)">
+                            <a href="#">Sports</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <div class="sub_menu" id="Sports_menu" onmouseleave="show_sub_menu()">
+                                <ul class="menu_tendina">
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2(2)">
+                                        <a href="#">Browns</a>
+                                        <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                                        <div class="sub_menu2" id="Browns_menu">
+                                            <ul class="menu_tendina">
+                                                <li class="elemento_menu_tendina" ><a href="#">Browns Schedules</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">Browns Rumors</a></li>
+                                                <li class="elemento_menu_tendina" ><a href="#">Deshaun Watson News</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Cincinnati Bengals</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Guardians</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Cavaliers</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Ohio State</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">College</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Online Sport Betting</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2(3)">
+                                        <a href="#">Columns</a>
+                                        <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                                        <div class="sub_menu2" id="Columns_menu">
+                                            <ul class="menu_tendina">
+                                                <li class="elemento_menu_tendina"><a href="#">Doug Lesmerises</a></li>
+                                                <li class="elemento_menu_tendina"><a href="#">Terry Pluto</a></li>
+                                                <li class="elemento_menu_tendina"><a href="#">Dennis Manoloff</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Mosters</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Golf</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Horse Racing</a></li>
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Outdoors</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" id="Online_Sport_Betting" onmouseenter="show_sub_menu(7)">
+                            <a href="#">Online Sport Betting</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron" >
+                            <div class="sub_menu" id="Online_Sport_Betting_menu" onmouseleave="show_sub_menu()">
+                                <ul class="menu_tendina">
+                                    <li class="elemento_menu_tendina"><a href="#">Ohio Sport Betting</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Caesars</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">DraftKings</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">FunDuel</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">BetMGM</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Barstool</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Bet365</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">PointsBet</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Tipico</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" id="Entertainment" onmouseenter="show_sub_menu(8)">
+                            <a href="#">Entertainment</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <div class="sub_menu" id="Entertainment_menu" onmouseleave="show_sub_menu()">
+                                <ul class="menu_tendina">
+                                    <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2(4)">
+                                        <a href="#">Food/Dining</a>
+                                        <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                                        <div class="sub_menu2" id="Food_Dining_menu">
+                                            <ul class="menu_tendina">
+                                                <li class="elemento_menu_tendina"><a href="#">Dinner Guides</a></li>
+                                                <li class="elemento_menu_tendina"><a href="#">Bars</a></li>
+                                                <li class="elemento_menu_tendina"><a href="#">Cooking</a></li>
+                                                <li class="elemento_menu_tendina"><a href="#">Top Restaurants</a></li>
+                                                <li class="elemento_menu_tendina"><a href="#">Drinks</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="elemento_menu_tendina"><a href="#">Best Of</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Events</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">MOvies</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Music</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">TV</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Books</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Arts</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Theater</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Friday!</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">People</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Living</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Travel</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Style</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" id="Comics&Puzzles" onmouseenter="show_sub_menu(9)">
+                            <a href="#">Comics & Puzzles</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <div class="sub_menu" id="ComicsPuzzles_menu" onmouseleave="show_sub_menu()">
+                                <ul class="menu_tendina">
+                                    <li class="elemento_menu_tendina"><a href="#">Comics Kingdom</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Go Comincs</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Puzzles Palace</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Puzzle Society</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Tribune Puzzles and Games</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Obituaries</a></li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Jobs</a></li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Autos</a></li>
+                        <li class="elemento_menu_tendina" id="Follow_Us" onmouseenter="show_sub_menu(10)">
+                            <a href="#">Follow Us</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <div class="sub_menu" id="Follow_Us_menu" onmouseleave="show_sub_menu()">
+                                <ul class="menu_tendina">
+                                    <li class="elemento_menu_tendina"><a href="#">Visit our Facebook Page</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Follow us on Twitter</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Visit us on Google Plus</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Public Notices</a></li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Real Estate News</a></li>
+                        <li class="elemento_menu_tendina" id="Classifieds" onmouseenter="show_sub_menu(11)">
+                            <a href="#">Classifieds</a>
+                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <div class="sub_menu" id="Classifieds_menu" onmouseleave="show_sub_menu()">
+                                <ul class="menu_tendina">
+                                    <li class="elemento_menu_tendina"><a href="#">Homes for Sale</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">For Rent</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Foreclosures</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Pets</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">For Sale</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Garage Sales</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Celebrations</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Fraud Prevention</a></li>
+                                    <li class="elemento_menu_tendina"><a href="#">Place or Manage an Ad</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Advertise with us</a></li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Mobile Apps</a></li>
+                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Email newsletters</a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="logo" onclick="set_MainLogo()">
+                <a  href="#">
+                <img class="big_logo" src="img/logo.svg" height="26">
+                </a>
+            </div>
+            <div class="accesso">
+                <div class="subscribe_button_conteiner" onclick="set_subcribe()"><div class="subscribe_button">Subscribe</div></div>
+                <div class="drop_right_menu" onclick="set_login()">
+                    <img class="user_logo" src="img/user-white.svg">
+                    <span class="sign_in_text">Sign in&nbsp;</span>
+                    <img id="chevron_login" src="img/chevron_down.png" height="20">
+                </div>
+                <div class="drop_login" onmouseleave="close_login()">
+                    <ul class="drop_login_lista">
+                        <li>
+                            <a href="#">Sign in</a>
+                        </li>
+                        <li>
+                            <a href="#">Create account</a>
+                        </li>
+                        <li>
+                            <a href="#">Newsletters</a>
+                        </li>
+                        <li>
+                            <a href="#">Custom Alerts</a>
+                        </li>
+                        <li>
+                            <a href="#">Help/FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section class="contenuto">
+            <div class="first_row">
+                <div class="space_between" style="width: 100%; padding-bottom: 50px;"><span style="font-size: 1.8em; font-weight: bold; color: #2A2A2A;">The Plain Dealer</span></div>
+                <div class="contenitore_doppio">
+                    <div class="top_image">
+                        <div class="big_image" style="background-image: url('img/top_left.avif');"></div>
+                        <div class="bottom_text">
+                            <span class="bold_text">The Plain Dealer’s front page for April 5, 2023</span>
+                            <span class="thin_text">By Mike Rose, 20h ago</span>
+                        </div>
+                    </div>
+                    <div class="top_image">
+                        <div class="big_image" style="background-image: url('img/top_left.avif');"></div>
+                        <div class="bottom_text">
+                            <span class="bold_text">The Plain Dealer’s front page for April 4, 2023</span>
+                            <span class="thin_text">By Mike Rose</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="second_row">
+                <div class="contenitore_articolo">
+                    <div class="small_image" style="background-image: url('img/storage/1.avif');"></div>
+                    <div class="right_text">
+                        <span class="bold_text">The Plain Dealer’s front page for April 3, 2023</span>
+                        <p>Cleveland Plain Dealer front page for 4/3/23. Please send news tips and coverage requests to news@cleveland.com.</p>
+                        <span class="thin_text">By Mike Rose</span>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <div class="contenitore_articolo">
+                    <div class="small_image" style="background-image: url('img/storage/2.avif');"></div>
+                    <div class="right_text">
+                        <span class="bold_text">The Plain Dealer’s front page for April 2, 2023</span>
+                        <p>The Plain Dealer’s front page for April 2, 2023</p>
+                        <span class="thin_text">By Megan Sims</span>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <div class="contenitore_articolo">
+                    <div class="small_image" style="background-image: url('img/storage/3.avif');"></div>
+                    <div class="right_text">
+                        <span class="bold_text">The Plain Dealer’s front page for March 31, 2023</span>
+                        <p>Cleveland Plain Dealer front page for 3/31/23. Please send news tips and coverage requests to news@cleveland.com.</p>
+                        <span class="thin_text">By Mike Rose</span>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <div class="contenitore_articolo">
+                    <div class="small_image" style="background-image: url('img/storage/4.avif');"></div>
+                    <div class="right_text">
+                        <span class="bold_text">The Plain Dealer’s front page for March 30, 2023</span>
+                        <p>Cleveland Plain Dealer front page for 3/30/23. Please send news tips and coverage requests to news@cleveland.com.</p>
+                        <span class="thin_text">By Mike Rose</span>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <div class="contenitore_articolo">
+                    <div class="small_image" style="background-image: url('img/storage/5.avif');"></div>
+                    <div class="right_text">
+                        <span class="bold_text">The Plain Dealer’s front page for March 29, 2023</span>
+                        <p>Cleveland Plain Dealer front page for 3/29/23. Please send news tips and coverage requests to news@cleveland.com.</p>
+                        <span class="thin_text">By Mike Rose</span>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <div class="contenitore_articolo">
+                    <div class="small_image" style="background-image: url('img/storage/6.avif');"></div>
+                    <div class="right_text">
+                        <span class="bold_text">The Plain Dealer’s front page for March 27, 2023</span>
+                        <p>Cleveland Plain Dealer front page for 3/27/23. Please send news tips and coverage requests to news@cleveland.com.</p>
+                        <span class="thin_text">By Mike Rose</span>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            
+            <div class="third_row"></div>
+
+            <br>
+            <br>
+
+
+        </section>
+        <footer class="footer">
+            <div class="footer_main">
+                <div class="logo_footer"><img src="img/logo_footer.avif" height="49"></div>
+                <div class="footer_Info">
+                    <div>
+                        <details class="details_footer" open="true">
+                            <summary class="summary_footer bold_text">More on Cleveland.com</summary>
+                            <ul class="lista_footer">
+                                <li ><a href="#">Sponsor Content</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Sell your car</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Post a job</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Sitemap &amp; search</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Post a classified ad</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Sell/rent your home</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Weather</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Videos</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Archives</a></li>
+                            </ul>
+                        </details>
+                        <details class="details_footer" open="true">
+                            <summary class="summary_footer bold_text">Follow Us</summary>
+                            <ul class="lista_footer">
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Twitter</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Pinterest</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Facebook</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Instagram</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">RSS</a></li>
+                            </ul>
+                        </details>
+                    </div>
+                    <div>
+                        <details class="details_footer" open="true">
+                            <summary class="summary_footer bold_text">Cleveland.com Sections</summary>
+                            <ul class="lista_footer">
+                                <li class="elemento_lista_footer"><a class="link_footer" href="https://www.cleveland.com/news/">News</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="https://www.cleveland.com/sports/">Sports</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="https://www.cleveland.com/entertainment/">Entertainment</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="https://www.cleveland.com/open/">Politics</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="https://www.cleveland.com/opinion/">Opinion</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer"></a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Living</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="https://www.cleveland.com/betting/">Betting</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Rentals</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Obituaries</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Jobs</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Deals in Your Area</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Classifieds</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="https://autos.cleveland.com/">Autos</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Real Estate</a></li>
+                            </ul>
+                        </details>
+                        <details class="details_footer" open="true">
+                            <summary class="summary_footer bold_text">Mobile</summary>
+                            <ul class="lista_footer">
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Mobile Apps</a></li>
+                            </ul>
+                        </details>
+                        <details class="details_footer" open="true">
+                            <summary class="summary_footer bold_text">Your Regional News Pages</summary>
+                            <ul class="lista_footer">
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Lakewood</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Beachwood</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Brunswick</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Strongsville</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Parma &amp; Parma Heights</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">More Communities</a></li>
+                            </ul>
+                        </details>
+                    </div>
+                    <div>
+                        <details class="details_footer" open="true">
+                            <summary class="summary_footer bold_text">About Us</summary>
+                            <ul class="lista_footer">
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Advertise with us</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">About Cleveland.com</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">About Advance Ohio</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Contact Us</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Career Opportunities</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Delivery Opportunities</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Audience FAQ</a></li>
+                            </ul>
+                        </details>
+                        <details class="details_footer" open="true">
+                            <summary class="summary_footer bold_text">Subscriptions</summary>
+                            <ul class="lista_footer">
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">cleveland.com</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">The Plain Dealer</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Newsletters</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Sun News</a></li>
+                            </ul>
+                        </details>
+                        <details class="details_footer" open="true">
+                            <summary class="summary_footer bold_text">Already a Subscriber</summary>
+                            <ul class="lista_footer">
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Make a Payment</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Manage your Subscription</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Place a Vacation Hold</a></li>
+                                <li class="elemento_lista_footer"><a class="link_footer" href="#">Delivery Feedback</a></li>
+                            </ul>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_disclaimer">
+                <div class="footer_disclaimer1">
+                    <a href="#">
+                        <img class="" src="img/AdvanceLocal_logo.svg">
+                    </a>
+                    <p>Use of and/or registration on any portion of this site constitutes acceptance of our   <a href="#">User Agreement</a> (updated 4/4/2023),  <a href="#">Privacy Policy and Cookie Statement</a>,  and <a href="#">Your Privacy Choices and Rights</a>  (each updated 1/26/2023).</p>
+                    <p>
+                        <button id="cookies_btn">Cookies Settings</button>
+                    </p>
+                    <p>© 2023 Advance Local Media LLC. All rights reserved (<a href="#">About Us</a>).<br> The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Advance Local.</p>
+                    <p><a href="#">Community Rules</a> apply to all content you upload or otherwise submit to this site.</p>
+                    <p>YouTube’s privacy policy is available <a href="#">here</a> and YouTube’s terms of service is available <a href="#">here</a>.</p>
+                    <p><a href="#"><img src="img/ad-choices-arrow.webp" width="10" height="10">Ad Choices</a></p>
+                </div>
+
+            </div>
+        </footer>
+    </body>
+</html>
+

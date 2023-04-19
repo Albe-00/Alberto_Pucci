@@ -1,0 +1,537 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Benton Sans,Arial,sans-serif;
+}
+
+.space_between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header{
+    background-color: #2A2A2A;
+    color: #fff;
+    border: none;
+    width: 100%;
+    height: 65px;
+}
+
+/*TODO CANCELLA GLI a e i li ridondanti*/
+
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+/*-------------------------------------------------------*/
+.left_menu{
+    padding-left: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop_left_menu{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    height: 50px;
+}
+
+
+.drop_weather{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #999999;
+    border-bottom: 3px solid #999999;
+    background-color: #fff;
+    color: #000;
+    position: absolute;
+    padding: 10px;
+    z-index: 10;
+}
+
+
+.drop_weather_exit_button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+.input_weather{
+    border: 1px solid #A9A9A9;
+    width: 90%;
+    padding: 20px 10px;
+    margin: 0 10px;
+}
+
+.weather_submit_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    color: white;
+    background-color: #2A2A2A;
+}
+
+.weather_submit_btn:hover{
+    zoom: 110%;
+}
+
+/*menu a tendina*/
+
+.main_menu_logo{
+    padding-left: 5px;
+    padding-right: 10px;
+    zoom : 110%
+}
+/*TODO aggiustare l'estetica del main menu*/
+.main_menu{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;/*#f0f0f0*/
+    border-bottom: 3px solid #999999;
+    background-color: #fff;
+    color: #000;
+    position: absolute;
+    padding: 10px 0px 10px 0;
+    z-index: 10;
+
+}
+
+.container_search{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #999999;
+}
+.chevron_right{
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    justify-self: right;
+}
+#Set_weather_li{
+    display: none;
+}
+
+.main_menu .menu_tendina{
+    /*padding: 10px 0 10px 0;*/
+    padding: 10px 0;
+    width: 100%;
+    margin: 0;
+}
+
+.main_menu .elemento_menu_tendina{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0!important;
+    background-color: transparent!important;
+    font-size: 0.8em;
+    padding: 0 10px;
+}
+.main_menu .elemento_menu_tendina:hover{
+    background-color: #f0f0f0!important;
+}
+.main_menu .elemento_menu_tendina a{
+    color: #2a2a2a!important;
+    padding-left : 10px;
+}
+
+.elemento_menu_tendina a:hover{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+
+
+
+
+.sub_menu{
+    display: none;
+    flex-direction: column;
+    justify-content: left;
+    border: 1px solid #999999;
+    border-bottom: 3px solid #999999;
+    position: absolute;
+    padding: 10px 0px;
+    margin : 0;
+    z-index: 10;
+    background-color: #f0f0f0;
+}
+
+.sub_menu .menu_tendina{
+    padding :0;
+    margin: 0;
+    width: 100%;
+}
+
+.sub_menu .elemento_menu_tendina{
+
+}
+.sub_menu .elemento_menu_tendina:hover{
+    background-color: white!important;
+}
+
+
+
+
+
+
+/*TODO fare i secondi sottomenu*/
+.sub_menu2{
+    display: none;
+    flex-direction: column;
+    justify-content: left;
+    border: 1px solid #999999;
+    border-bottom: 3px solid #999999;
+    background-color: lightgray;
+    position: absolute;
+    padding: 10px;
+    z-index: 10;
+}
+
+.submenu2 .menu_tendina{
+    padding: 10px;
+    padding :0;
+    margin: 0;
+    width: 100%;
+    background-color: white;
+}
+
+.submenu2 .elemento_menu_tendina :hover{
+    background-color: #f0f0f0!important;
+}
+
+
+
+
+
+
+
+
+/*-----------------------------------------------*/
+
+.logo{
+    justify-self: center;
+}
+
+
+.small_logo{
+    display: none;
+    height: 40px;
+    width: 40px;
+}
+
+
+/*-----------------------------------------------*/
+
+.accesso{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.subscribe_button_conteiner{
+    transition: 0.3s;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.subscribe_button_conteiner:active{
+    transition: 0.3s;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.subscribe_button{
+    font-size: 14px;
+    color: #ffffff;
+    border: 1px solid #fff;
+    padding: 6px 40px;
+    margin: 5px;
+}
+
+.drop_right_menu{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+.user_logo{
+    padding: 0 5px;
+    cursor:pointer;
+    height : 32px;
+}
+
+
+.drop_login{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    background-color: #fff;
+    color: #000;
+    position: absolute;
+    z-index: 10;
+}
+
+.drop_login_lista{
+    list-style-type: none;
+    padding: 0px;
+}
+.drop_login_lista li{
+    padding : 10px 10px 10px 10px;
+    cursor: pointer;
+}
+.drop_login_lista li:hover{
+    background-color: lightgrey;
+    color: #fff;
+    text-decoration-line: none ;
+}
+
+/*-----------------------------------------------*/
+
+/*TODO fare il section della pagina*/
+.contenuto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.first_row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.contenitore_doppio{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.top_image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.big_image{
+    width: 100%;
+    height: 650px;
+    background-position: left;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
+.bottom_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 95%;
+    padding-top: 20px;
+}
+
+.bold_text{
+    font-size: 1.4em;
+    padding-bottom: 10px;
+}
+
+.thin_text{
+    font-size: 0.8em;
+    color: #A9A9A9;
+}
+
+.second_row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.contenitore_articolo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.small_image{
+    width: 250px;
+    height: 350px;
+    background-position: left;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
+.right_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 350px;
+    width: 100%;
+}
+
+.divider{
+    margin-top: 50px;
+    width: 100%;
+}
+
+.third_row{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    border-top: 1px solid #A9A9A9;
+    border-bottom: 1px solid #A9A9A9;
+}
+
+/*-----------------------------------------------*/
+
+/* TODO allineare a sinistra il div diclaimer1*/
+.footer{
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #ffffff;
+    color: #666666;
+    /*border-top: 1px solid #c8c8c8;*/
+    padding: 40px 0px 0px;
+    margin: 25px 0px 0px;
+}
+.footer a{
+    color: #666666;
+}
+
+
+.logo_footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0px 0px 40px;
+}
+
+.summary_footer{
+    color:#2a2a2a;
+    font-size: 16px;
+}
+details li{
+    padding: 2px 0px;
+    font-size: 14px;
+}
+
+.footer_disclaimer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.footer_disclaimer1{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    width: 50%;
+    padding-top: 40px;
+    border-top: 1px solid #c8c8c8;
+}
+
+
+#cookies_btn{
+    background-color: #f0f0f0;
+    padding : 9.6px 24px;
+    border : 1px solid black;
+}
+
+/*-----------------------------------------------*/
+
+/*TODO  finire di aggiustare il comportamento responsive*/
+
+@media screen and (max-width: 767px){
+
+    .drop_left_menu{
+        display: none;
+    }
+
+    .drop_weather{
+        width: 100%;
+    }
+    #Set_weather_li{
+        display: block;
+    }
+
+    .logo{
+        display :flex;
+        /*FIXME da valutare questo justify*/
+        justify-self: left;
+    }
+    .big_logo{
+        display: none;
+    }
+    .small_logo{
+        display: block;
+    }
+
+    .subscribe_button{
+        font-size: 0.8em;
+        padding: 6px 15px;
+
+    }
+
+    .sign_in_text{
+        display: none;
+    }
+
+    /* TODO finire il comportamento quando diminuisco la finestra*/
+    /*.drop_login{
+        width: 100%;
+    }*/
+
+
+
+}
