@@ -18,7 +18,7 @@ body{
     height: 65px;
 }
 
-/*TODO CANCELLA GLI a e i li ridondanti*/
+
 
 li{
     list-style-type: none;
@@ -97,7 +97,7 @@ a{
     padding-right: 10px;
     zoom : 110%
 }
-/*TODO aggiustare l'estetica del main menu*/
+
 .main_menu{
     display: none;
     flex-direction: column;
@@ -197,7 +197,7 @@ a{
 
 
 
-/*TODO fare i secondi sottomenu*/
+
 .sub_menu2{
     display: none;
     flex-direction: column;
@@ -316,7 +316,7 @@ a{
 
 /*-----------------------------------------------*/
 
-/*TODO fare il section della pagina*/
+
 .contenuto{
     display: flex;
     flex-direction: column;
@@ -427,7 +427,7 @@ a{
 
 /*-----------------------------------------------*/
 
-/* TODO allineare a sinistra il div diclaimer1*/
+
 .footer{
     display: flex!important;
     flex-direction: column;
@@ -490,7 +490,7 @@ details li{
 
 /*-----------------------------------------------*/
 
-/*TODO  finire di aggiustare il comportamento responsive*/
+
 
 @media screen and (max-width: 767px){
 
@@ -507,7 +507,7 @@ details li{
 
     .logo{
         display :flex;
-        /*FIXME da valutare questo justify*/
+
         justify-self: left;
     }
     .big_logo{
@@ -527,7 +527,7 @@ details li{
         display: none;
     }
 
-    /* TODO finire il comportamento quando diminuisco la finestra*/
+
     /*.drop_login{
         width: 100%;
     }*/

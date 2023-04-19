@@ -177,7 +177,7 @@ function set_login() {
     close_MainLogo();
     close_subcribe();
 
-    /* TODO login responsive*/
+
     if(window.innerWidth < 767){
         $(".drop_login").css("width","100%");
         $(".drop_login").css("left",0);
@@ -213,7 +213,7 @@ function posizione_sottomenu(){
         $(".sub_menu").css("left", parseInt(parseInt(posizione_main_menu.left) + parseInt($(".main_menu").outerWidth())));
         $(".sub_menu").css("top",$(".header").outerHeight() );
     }else{
-        /*TODO */
+
         $(".sub_menu").css("left", 0);
         $(".sub_menu").css("top", $(".main_menu").height());
     }
@@ -302,4 +302,3 @@ function show_sub_menu2(id=0 ){
 }
 
 
-/*TODO fare i submenu2*/
