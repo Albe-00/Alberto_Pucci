@@ -202,7 +202,7 @@ function posizione_sottomenu(){
 
     if(window.innerWidth >= 767) {
         $(".sub_menu").css("left", $(".main_menu").outerWidth());
-        $(".sub_menu").css("top",0);
+        $(".sub_menu").css("top",-1);
     }else{
 
         $(".sub_menu").css("left", 0);
@@ -321,7 +321,7 @@ function show_sub_menu_responsive(id=0){
 function posizione_sottomenu2(){
 
     $(".sub_menu2").css("left", $(".sub_menu").outerWidth()   );
-    $(".sub_menu2").css("top", 0 );
+    $(".sub_menu2").css("top", -2 );
 
 }
 function show_sub_menu2(id=0 ){
