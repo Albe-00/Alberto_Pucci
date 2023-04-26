@@ -1,48 +1,70 @@
+/* Variabili per la gestione dei menu a comparsa ed effetti sui bottoni chiamanti*/
 var main_menu =false
 var weather = false;
 var mainLogo = false;
 var subcribe = false;
 var login = false;
 
-$(document).ready(function() {
-   var posizione_main_menu = $(".main_menu_logo").position();
-   var posizione_weather = $(".drop_left_menu").position();
-   var posizione_login = $(".drop_right_menu").position();
-   var altezza_nav = $(".header").height();
+/*dimensioni dimnamiche delle finestre a comparsa*/
+function set_up_responsive(){
+
+    /* MAIN MENU */
+    if(window.innerWidth < 767){
+
+        /* MAIN MENU */
+        $(".main_menu").css("width","100%");
+        $(".main_menu").css("left",$(".left_menu").position().left);
+        $(".main_menu").css("top", $(".header").height());
+        $(".main_menu").css("z-index","1");
+        $(".main_menu .elemento_menu_tendina").css("justify-content","space-beetween");
+        $(".container_search").css("width","90%");
 
 
+        /* WEATHER */
+        $(".drop_weather").css("width","100%");
+        $(".drop_weather").css("left",$(".left_menu").position().left);
+        $(".drop_weather").css("top", $(".header").height());
 
-   $(".main_menu").css("left", posizione_main_menu.left);
-   $(".main_menu").css("top", altezza_nav);
+        /* LOGIN */
+        $(".drop_login").css("width","100%");
+        $(".drop_login").css("left",0);
+        $(".drop_login").css("top", $(".header").height());
+        $(".drop_login").css("justify-content","left");
 
-    posizione_sottomenu();
 
-    posizione_sottomenu2();
+        /*--------------------------------------------------------*/
 
-   $(".drop_weather").css("left", posizione_weather.left);
-   $(".drop_weather").css("top", altezza_nav);
+        $(".contenitore_doppio").css("flex-direction","column");
 
-   $(".drop_login").css("left", posizione_login.left);
-   $(".drop_login").css("top", altezza_nav);
+    }else{
 
-   $(window).resize(function() {
-       var posizione_main_menu = $(".main_menu_logo").position();
-       var posizione_weather = $(".drop_left_menu").position();
-       var posizione_login = $(".drop_right_menu").position();
-       var altezza_nav = $(".header").height();
+        /* MAIN MENU */
+        $(".main_menu").css("left", $(".main_menu_logo").position().left);
+        $(".main_menu").css("top", $(".header").height());
+        $(".main_menu").css("width","auto");
+        $(".main_menu .elemento_menu_tendina").css("justify-content","space-between");
+        $(".container_search").css("wwidth","auto");
 
-       $(".main_menu").css("left", posizione_main_menu.left);
-       $(".main_menu").css("top", altezza_nav);
+        /* WEATHER */
+        $(".drop_weather").css("left", $(".drop_left_menu").position().left);
+        $(".drop_weather").css("top", $(".header").height());
+        $(".drop_weather").css("width","auto");
 
-       posizione_sottomenu();
-       posizione_sottomenu2();
+        /* LOGIN */
+        $(".drop_login").css("width","400px");
+        /*$(".drop_login").css("left", $(".drop_right_menu").position().left);*/
+        $(".drop_login").css("right",0);
+        $(".drop_login").css("top", $(".header").height());
+        $(".drop_login").css("justify-content","left");
 
-       $(".drop_weather").css("left", posizione_weather.left);
-       $(".drop_weather").css("top", altezza_nav);
-       $(".drop_login").css("left", posizione_login.left);
-       $(".drop_login").css("top", altezza_nav);
-   });
-});
+        /*--------------------------------------------------------*/
+
+
+        $(".contenitore_doppio").css("flex-direction","row");
+    }
+}
+
+window.addEventListener('resize', set_up_responsive);
 
 function close_main_menu(){
     $(".main_menu").css("display","none");
@@ -97,19 +119,6 @@ function set_main_menu() {
     close_subcribe();
     close_login();
 
-    if(window.innerWidth < 767){
-        $(".main_menu").css("width","100%");
-        $(".main_menu").css("left",$(".left_menu").position().left);
-        $(".main_menu .elemento_menu_tendina").css("justify-content","space-beetween");
-        $(".container_search").css("width","90%");
-        $("#Set_weather_li").css("text-justify","center");
-    }else{
-        $(".main_menu").css("left", $(".main_menu_logo").position().left);
-        $(".main_menu").css("top", $(".header").height());
-        $(".main_menu").css("width","auto");
-        $(".main_menu .elemento_menu_tendina").css("justify-content","space-between");
-        $(".container_search").css("wwidth","auto");
-    }
 
     if(!main_menu) {
         main_menu = true;
@@ -129,15 +138,7 @@ function set_weather() {
     close_subcribe();
     close_login();
 
-    if(window.innerWidth < 767){
-        $(".drop_weather").css("width","100%");
-        $(".drop_weather").css("left",$(".left_menu").position().left);
-        $(".drop_weather").css("top", $(".header").height());
-    }else{
-        $(".drop_weather").css("left", $(".drop_left_menu").position().left);
-        $(".drop_weather").css("top", $(".header").height());
-        $(".drop_weather").css("width","auto");
-    }
+
     if(!weather) {
         weather = true;
         $("#chevron_weather").attr("src","img/chevron_up.png");
@@ -178,15 +179,7 @@ function set_login() {
     close_subcribe();
 
 
-    if(window.innerWidth < 767){
-        $(".drop_login").css("width","100%");
-        $(".drop_login").css("left",0);
-        $(".drop_login").css("top", $(".header").height());
-    }else {
-        $(".drop_login").css("width","auto");
-        $(".drop_login").css("left", $(".drop_right_menu").position().left);
-        $(".drop_login").css("top", $(".header").height());
-    }
+
 
     if(!login) {
         login = true;
@@ -208,97 +201,156 @@ function set_login() {
 function posizione_sottomenu(){
 
     if(window.innerWidth >= 767) {
-        var posizione_main_menu = $(".main_menu_logo").position();
-
-        $(".sub_menu").css("left", parseInt(parseInt(posizione_main_menu.left) + parseInt($(".main_menu").outerWidth())));
-        $(".sub_menu").css("top",$(".header").outerHeight() );
+        $(".sub_menu").css("left", $(".main_menu").outerWidth());
+        $(".sub_menu").css("top",0);
     }else{
 
         $(".sub_menu").css("left", 0);
         $(".sub_menu").css("top", $(".main_menu").height());
+        /*$(".sub_menu").css("z-index", 10);*/
     }
 }
 function show_sub_menu(id=0){
 
     $(".sub_menu").css("height",$(".main_menu").height());
     $(".sub_menu").css("display","none");
-    posizione_sottomenu()
+    $(".chevron_right").css("display","flex");
 
-    switch (id) {
-        case 1:
-            $("#news_menu").css("display","flex");
-            break;
-        case 2:
-            $("#PoliticsElections_menu").css("display","flex");
-            break;
-        case 3:
-            $("#Local_news_menu").css("display","flex");
-            break;
-        case 4:
-            $("#Opinion_menu").css("display","flex");
-            break;
-        case 5:
-            $("#Business_menu").css("display","flex");
-            break;
-        case 6:
-            $("#Sports_menu").css("display","flex");
-            break;
-        case 7:
-            $("#Online_Sport_Betting_menu").css("display","flex");
-            break;
-        case 8:
-            $("#Entertainment_menu").css("display","flex");
-            break;
-        case 9:
-            $("#ComicsPuzzles_menu").css("display","flex");
-            break;
-        case 10:
-            $("#Follow_Us_menu").css("display","flex");
-            break;
-        case 11:
-            $("#Classifieds_menu").css("display","flex");
-            break;
+    if(window.innerWidth >= 767) {
 
+        posizione_sottomenu();
+
+        switch (id) {
+            case 1:
+                $("#news_menu").css("display", "flex");
+                $("#chevron_right_news").css("display", "none");
+                break;
+            case 2:
+                $("#PoliticsElections_menu").css("display", "flex");
+                $("#chevron_right_PoliticsElections").css("display", "none");
+                break;
+            case 3:
+                $("#Local_news_menu").css("display", "flex");
+                $("#chevron_right_Local_News").css("display", "none");
+                break;
+            case 4:
+                $("#Opinion_menu").css("display", "flex");
+                $("#chevron_right_Opinion").css("display", "none");
+                break;
+            case 5:
+                $("#Business_menu").css("display", "flex");
+                $("#chevron_right_Business").css("display", "none");
+                break;
+            case 6:
+                $("#Sports_menu").css("display", "flex");
+                $("#chevron_right_Sports").css("display", "none");
+                break;
+            case 7:
+                $("#Online_Sport_Betting_menu").css("display", "flex");
+                $("#chevron_right_Online_Sport_Betting").css("display", "none");
+                break;
+            case 8:
+                $("#Entertainment_menu").css("display", "flex");
+                $("#chevron_right_Entertainment").css("display", "none");
+                break;
+            case 9:
+                $("#ComicsPuzzles_menu").css("display", "flex");
+                $("#chevron_right_ComicsPuzzles").css("display", "none");
+                break;
+            case 10:
+                $("#Follow_Us_menu").css("display", "flex");
+                $("#chevron_right_Follow_Us").css("display", "none");
+                break;
+            case 11:
+                $("#Classifieds_menu").css("display", "flex");
+                $("#chevron_right_Classifieds").css("display", "none");
+                break;
+
+        }
     }
 
+}
+function show_sub_menu_responsive(id=0){
+    $(".sub_menu").css("height",$(".main_menu").height());
+    if(window.innerWidth < 767) {
+
+        posizione_sottomenu();
+
+        switch (id) {
+            case 1:
+                $("#news_menu").css("display", "flex");
+                break;
+            case 2:
+                $("#PoliticsElections_menu").css("display", "flex");
+                break;
+            case 3:
+                $("#Local_news_menu").css("display", "flex");
+                break;
+            case 4:
+                $("#Opinion_menu").css("display", "flex");
+                break;
+            case 5:
+                $("#Business_menu").css("display", "flex");
+                break;
+            case 6:
+                $("#Sports_menu").css("display", "flex");
+                break;
+            case 7:
+                $("#Online_Sport_Betting_menu").css("display", "flex");
+                break;
+            case 8:
+                $("#Entertainment_menu").css("display", "flex");
+                break;
+            case 9:
+                $("#ComicsPuzzles_menu").css("display", "flex");
+                break;
+            case 10:
+                $("#Follow_Us_menu").css("display", "flex");
+                break;
+            case 11:
+                $("#Classifieds_menu").css("display", "flex");
+                break;
+
+        }
+    }
 }
 
 
 
 
 function posizione_sottomenu2(){
-    var posizione_main_menu = $(".main_menu_").position();
-    var posizione_sub_menu = $(".sub_menu").position();
-    var altezza_nav = $(".header").height();
 
-
-
-    $(".sub_menu2").css("left", parseInt(posizione_main_menu.left + $(".main_menu").outerWidth() + 300 )  );
+    $(".sub_menu2").css("left", $(".sub_menu").outerWidth()   );
     $(".sub_menu2").css("top", 0 );
+
 }
 function show_sub_menu2(id=0 ){
 
     $(".sub_menu2").css("height",$(".main_menu").height());
     $(".sub_menu2").css("display","none");
+    $(".chevron_right").css("display","block");
 
-    posizione_sottomenu2();
-
-    switch (id) {
-        case 1:
-                $("#Special_Report_menu").css("display","flex");
-            break;
-        case 2:
-                $("#Browns_menu").css("display","flex");
-            break;
-        case 3:
-                $("#Columns_menu").css("display","flex");
-            break;
-        case 4:
-                $("#Food_Dining_menu").css("display","flex");
-            break;
-
+    if(window.innerWidth >= 767) {
+        posizione_sottomenu2();
+        switch (id) {
+            case 1:
+                $("#Special_Reports_menu").css("display", "flex");
+                $("#chevron_right_Special_Reports").css("display", "none");
+                break;
+            case 2:
+                $("#Browns_menu").css("display", "flex");
+                $("#chevron_right_Browns").css("display", "none");
+                break;
+            case 3:
+                $("#Columns_menu").css("display", "flex");
+                $("#chevron_right_Columns").css("display", "none");
+                break;
+            case 4:
+                $("#Food_Dining_menu").css("display", "flex");
+                $("#chevron_right_Food_Dining").css("display", "none");
+                break;
+        }
     }
-
 }
 
 

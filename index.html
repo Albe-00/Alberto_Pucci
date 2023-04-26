@@ -13,7 +13,7 @@
         <script src="js/jquery-3.6.4.js"></script>
         <script src="js/index.js"></script>
     </head>
-    <body>
+    <body onload="set_up_responsive()">
         <header class="header space_between">
             <div class="left_menu">
                 <img class ="main_menu_logo" onclick="set_main_menu()" src="img/menu.svg" height="26">
@@ -29,26 +29,29 @@
                     </div>
                     <div class="space_between" style="width: 100%;"><p>Set Your Location:</p></div>
                     <br>
-                    <input class="input_weather" type="text" placeholder="Enter City Zone etc..">
+                    <input class="input_weather" type="text" placeholder="Enter City and State or Zip Code">
                     <br>
                     <button class="weather_submit_btn">Submit</button>
                 </div>
-                <!--  onmouseleave="close_main_menu()"  nel div class="main_menu"-->
-                <div class="main_menu">
+                <div class="main_menu" onmouseleave="close_main_menu()">
                     <ul class="menu_tendina">
-                        <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()">
+                        <li class="elemento_menu_tendina" id="search_bar" onmouseenter="show_sub_menu()">
                             <div class="container_search">
                                 <img class="search_icon" src="img/lente.svg">
                                 <input type="search" placeholder="Search latest news" style="border: none; background-color: transparent; outline: none;">
                             </div>
                         </li>
                         <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Home</a></li>
-                        <li class="elemento_menu_tendina" id="Set_weather_li" onmouseenter="show_sub_menu()" onclick="set_weather(),close_main_menu()">Set Weather</li>
+                        <li class="elemento_menu_tendina" id="Set_weather_li" onmouseenter="show_sub_menu()" onclick="set_weather() , close_main_menu()">Set Weather</li>
                         <li class="elemento_menu_tendina" id="news" onmouseenter="show_sub_menu(1)">
                             <a href="#">News</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_news" onclick="show_sub_menu_responsive(1)">
                             <div class="sub_menu" id="news_menu" >
                                 <ul class="menu_tendina">
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Metro</a></li>
                                     <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Support Cleveland.com</a></li>
                                     <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">The Plain Dealer</a></li>
@@ -62,9 +65,13 @@
                                     <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">World</a></li>
                                     <li class="elemento_menu_tendina" id="Special_reports" onmouseenter="show_sub_menu2(1)">
                                         <a classhref="#">Special Reports</a>
-                                        <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
-                                        <div class="sub_menu2" id="Special_Report_menu">
+                                        <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Special_Reports">
+                                        <div class="sub_menu2" id="Special_Reports_menu">
                                             <ul class="menu_tendina">
+                                                <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                                    <img class="chevron_left" src="img/chevron-left.svg" >
+                                                    <span style="font-weight: bold">BACK</span>
+                                                </li>
                                                 <li class="elemento_menu_tendina" ><a href="#">A Greater Cleveland</a></li>
                                                 <li class="elemento_menu_tendina" ><a href="#">A Critical Choice Nursing Home care</a></li>
                                                 <li class="elemento_menu_tendina" ><a href="#">At Any (Court) Cost</a></li>
@@ -87,9 +94,13 @@
                         <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Podcast</a></li>
                         <li class="elemento_menu_tendina" id="Politics&Elections" onmouseenter="show_sub_menu(2)">
                             <a href="#">Politics & Elections</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_PoliticsElections">
                             <div class="sub_menu" id="PoliticsElections_menu" onmouseleave="show_sub_menu()">
                                 <ul class="menu_tendina">
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina"><a href="#">State Politics</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">National Politics & Elections</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Cleveland City Hall</a></li>
@@ -101,9 +112,13 @@
                         </li>
                         <li class="elemento_menu_tendina" id="Local_news" onmouseenter="show_sub_menu(3)">
                             <a href="#">Local news</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Local_News">
                             <div class="sub_menu" id="Local_news_menu" onmouseleave="show_sub_menu()">
                                 <ul class="menu_tendina" >
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina"><a href="#">Akron</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Brunswick Sun</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Chagrin Solon Sun</a></li>
@@ -124,9 +139,13 @@
                         </li>
                         <li class="elemento_menu_tendina" id="Opinion" onmouseenter="show_sub_menu(4)">
                             <a href="#">Opinion</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Opinion">
                             <div class="sub_menu" id="Opinion_menu" onmouseleave="show_sub_menu()">
                                 <ul class="menu_tendina" >
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina"><a href="#">Letters to the Editor</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Jeff Darcy's Cartoons</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">More Columnists</a></li>
@@ -135,9 +154,13 @@
                         </li>
                         <li class="elemento_menu_tendina" id="Business" onmouseenter="show_sub_menu(5)">
                             <a href="#">Business</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Business">
                             <div class="sub_menu" id="Business_menu" onmouseleave="show_sub_menu()">
                                 <ul class="menu_tendina">
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina"><a href="#">Energy</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Consumer Affairs</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Personal Finance</a></li>
@@ -147,14 +170,22 @@
                         </li>
                         <li class="elemento_menu_tendina" id="Sports" onmouseenter="show_sub_menu(6)">
                             <a href="#">Sports</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Sports">
                             <div class="sub_menu" id="Sports_menu" onmouseleave="show_sub_menu()">
                                 <ul class="menu_tendina">
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2(2)">
                                         <a href="#">Browns</a>
-                                        <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                                        <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Browns">
                                         <div class="sub_menu2" id="Browns_menu">
                                             <ul class="menu_tendina">
+                                                <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                                    <img class="chevron_left" src="img/chevron-left.svg" >
+                                                    <span style="font-weight: bold">BACK</span>
+                                                </li>
                                                 <li class="elemento_menu_tendina" ><a href="#">Browns Schedules</a></li>
                                                 <li class="elemento_menu_tendina" ><a href="#">Browns Rumors</a></li>
                                                 <li class="elemento_menu_tendina" ><a href="#">Deshaun Watson News</a></li>
@@ -169,9 +200,13 @@
                                     <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2()"><a href="#">Online Sport Betting</a></li>
                                     <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2(3)">
                                         <a href="#">Columns</a>
-                                        <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                                        <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Columns">
                                         <div class="sub_menu2" id="Columns_menu">
                                             <ul class="menu_tendina">
+                                                <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                                    <img class="chevron_left" src="img/chevron-left.svg" >
+                                                    <span style="font-weight: bold">BACK</span>
+                                                </li>
                                                 <li class="elemento_menu_tendina"><a href="#">Doug Lesmerises</a></li>
                                                 <li class="elemento_menu_tendina"><a href="#">Terry Pluto</a></li>
                                                 <li class="elemento_menu_tendina"><a href="#">Dennis Manoloff</a></li>
@@ -187,9 +222,13 @@
                         </li>
                         <li class="elemento_menu_tendina" id="Online_Sport_Betting" onmouseenter="show_sub_menu(7)">
                             <a href="#">Online Sport Betting</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron" >
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Online_Sport_Betting" >
                             <div class="sub_menu" id="Online_Sport_Betting_menu" onmouseleave="show_sub_menu()">
                                 <ul class="menu_tendina">
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina"><a href="#">Ohio Sport Betting</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Caesars</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">DraftKings</a></li>
@@ -204,14 +243,22 @@
                         </li>
                         <li class="elemento_menu_tendina" id="Entertainment" onmouseenter="show_sub_menu(8)">
                             <a href="#">Entertainment</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Entertainment">
                             <div class="sub_menu" id="Entertainment_menu" onmouseleave="show_sub_menu()">
                                 <ul class="menu_tendina">
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina" onmouseenter="show_sub_menu2(4)">
                                         <a href="#">Food/Dining</a>
-                                        <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                                        <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Food_Dining">
                                         <div class="sub_menu2" id="Food_Dining_menu">
                                             <ul class="menu_tendina">
+                                                <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                                    <img class="chevron_left" src="img/chevron-left.svg" >
+                                                    <span style="font-weight: bold">BACK</span>
+                                                </li>
                                                 <li class="elemento_menu_tendina"><a href="#">Dinner Guides</a></li>
                                                 <li class="elemento_menu_tendina"><a href="#">Bars</a></li>
                                                 <li class="elemento_menu_tendina"><a href="#">Cooking</a></li>
@@ -238,9 +285,13 @@
                         </li>
                         <li class="elemento_menu_tendina" id="Comics&Puzzles" onmouseenter="show_sub_menu(9)">
                             <a href="#">Comics & Puzzles</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_ComicsPuzzles">
                             <div class="sub_menu" id="ComicsPuzzles_menu" onmouseleave="show_sub_menu()">
                                 <ul class="menu_tendina">
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina"><a href="#">Comics Kingdom</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Go Comincs</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Puzzles Palace</a></li>
@@ -254,9 +305,13 @@
                         <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Autos</a></li>
                         <li class="elemento_menu_tendina" id="Follow_Us" onmouseenter="show_sub_menu(10)">
                             <a href="#">Follow Us</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Follow_Us">
                             <div class="sub_menu" id="Follow_Us_menu" onmouseleave="show_sub_menu()">
                                 <ul class="menu_tendina">
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina"><a href="#">Visit our Facebook Page</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Follow us on Twitter</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Visit us on Google Plus</a></li>
@@ -267,9 +322,13 @@
                         <li class="elemento_menu_tendina" onmouseenter="show_sub_menu()"><a href="#">Real Estate News</a></li>
                         <li class="elemento_menu_tendina" id="Classifieds" onmouseenter="show_sub_menu(11)">
                             <a href="#">Classifieds</a>
-                            <img class="chevron_right" src="img/chevron_right.png" title="Large Chevron">
+                            <img class="chevron_right" src="img/chevron-right.svg" id="chevron_right_Classifieds">
                             <div class="sub_menu" id="Classifieds_menu" onmouseleave="show_sub_menu()">
                                 <ul class="menu_tendina">
+                                    <li class="back" onclick="show_sub_menu()" onmouseenter="show_sub_menu2()">
+                                        <img class="chevron_left" src="img/chevron-left.svg" >
+                                        <span style="font-weight: bold">BACK</span>
+                                    </li>
                                     <li class="elemento_menu_tendina"><a href="#">Homes for Sale</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">For Rent</a></li>
                                     <li class="elemento_menu_tendina"><a href="#">Foreclosures</a></li>
@@ -323,6 +382,7 @@
             </div>
         </header>
         <section class="contenuto">
+            <div class="top_adv"> TOP ADV </div>
             <div class="first_row">
                 <div class="space_between" style="width: 100%; padding: 30px 30px;"><span style="font-size: 1.8em; font-weight: bold; color: #2A2A2A;">The Plain Dealer</span></div>
                 <div class="contenitore_doppio">
@@ -534,7 +594,7 @@
                     </a>
                     <p>Use of and/or registration on any portion of this site constitutes acceptance of our   <a href="#">User Agreement</a> (updated 4/4/2023),  <a href="#">Privacy Policy and Cookie Statement</a>,  and <a href="#">Your Privacy Choices and Rights</a>  (each updated 1/26/2023).</p>
                     <p>
-                        <button id="cookies_btn">Cookies Settings</button>
+                        <button class="cookies_button" onclick="">Cookies Settings</button>
                     </p>
                     <p>© 2023 Advance Local Media LLC. All rights reserved (<a href="#">About Us</a>).<br> The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Advance Local.</p>
                     <p><a href="#">Community Rules</a> apply to all content you upload or otherwise submit to this site.</p>

@@ -35,6 +35,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+    justify-self: left;
 }
 
 .drop_left_menu{
@@ -74,6 +75,7 @@ a{
     width: 90%;
     padding: 20px 10px;
     margin: 0 10px;
+    font-size : 1em;
 }
 
 .weather_submit_btn{
@@ -104,11 +106,11 @@ a{
     justify-content: center;
     align-items: center;
     border: 1px solid black;/*#f0f0f0*/
-    border-bottom: 3px solid #999999;
-    background-color: #fff;
+    border-bottom: 5px solid #999999;
+    background-color: #ffffff;
     color: #000;
     position: absolute;
-    padding: 10px 0px 10px 0;
+    padding: 0;
     z-index: 10;
 
 }
@@ -116,16 +118,21 @@ a{
 .container_search{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border: 1px solid #999999;
+    border: 1px solid black;
+    margin: 0 10px;
 }
+
+.search_icon{
+    margin-right: 5px;
+}
+
+
 .chevron_right{
     height: 20px;
     width: 20px;
-    background-color: transparent;
-    justify-self: right;
+    padding-right: 10px;
 }
 #Set_weather_li{
     display: none;
@@ -143,16 +150,18 @@ a{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0!important;
+    padding: 8px 10px!important;
     background-color: transparent!important;
-    font-size: 0.8em;
-    padding: 0 10px;
+    /*font-size: 0.8em;*/
+    font-size: 14px;
 }
 .main_menu .elemento_menu_tendina:hover{
     background-color: #f0f0f0!important;
 }
+#search_bar:hover{
+    background-color: transparent;
+}
 .main_menu .elemento_menu_tendina a{
-    color: #2a2a2a!important;
     padding-left : 10px;
 }
 
@@ -170,13 +179,14 @@ a{
     display: none;
     flex-direction: column;
     justify-content: left;
-    border: 1px solid #999999;
-    border-bottom: 3px solid #999999;
+    border: 1px solid black;/*#f0f0f0*/
+    border-bottom: 5px solid #999999;
     position: absolute;
-    padding: 10px 0px;
+    padding: 10px 0;
     margin : 0;
     z-index: 10;
     background-color: #f0f0f0;
+    width: 234px;
 }
 
 .sub_menu .menu_tendina{
@@ -186,10 +196,29 @@ a{
 }
 
 .sub_menu .elemento_menu_tendina{
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px !important;
+    background-color: transparent!important;
+    /*font-size: 0.8em;*/
+    font-size: 14px;
 }
 .sub_menu .elemento_menu_tendina:hover{
     background-color: white!important;
+}
+
+.back{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+}
+
+.chevron_left{
+    height: 18px;
+    width: 18px;
+    padding-left: 5px;
 }
 
 
@@ -202,24 +231,38 @@ a{
     display: none;
     flex-direction: column;
     justify-content: left;
-    border: 1px solid #999999;
-    border-bottom: 3px solid #999999;
-    background-color: lightgray;
+    border: 1px solid black;/*#f0f0f0*/
+    border-bottom: 5px solid #999999;
+    background-color: white;
     position: absolute;
     padding: 10px;
     z-index: 10;
+    width: 234px;
 }
 
 .submenu2 .menu_tendina{
-    padding: 10px;
-    padding :0;
-    margin: 0;
+    padding: 10px 0;
     width: 100%;
-    background-color: white;
+    margin: 0;
+}
+.submenu2 .elemento_menu_tendina{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px!important;
+    background-color: transparent!important;
+    /*font-size: 0.8em;*/
+    font-size: 14px;
 }
 
-.submenu2 .elemento_menu_tendina :hover{
-    background-color: #f0f0f0!important;
+.submenu2 .elemento_menu_tendina:hover{
+    background-color: #f0f0f0;
+}
+
+.submenu2 .elemento_menu_tendina a{
+    color: #2a2a2a!important;
+    padding-left : 10px;
 }
 
 
@@ -232,7 +275,8 @@ a{
 /*-----------------------------------------------*/
 
 .logo{
-    justify-self: center;
+    display: flex;
+    padding-left: 100px;
 }
 
 
@@ -296,22 +340,24 @@ a{
     border: 1px solid black;
     background-color: #fff;
     color: #000;
+    font-size: 16px;
     position: absolute;
     z-index: 10;
+    height: 395px;
 }
 
 .drop_login_lista{
     list-style-type: none;
-    padding: 0px;
+    padding: 0;
+    width:100%;
 }
 .drop_login_lista li{
     padding : 10px 10px 10px 10px;
     cursor: pointer;
 }
 .drop_login_lista li:hover{
-    background-color: lightgrey;
+    background-color: #f0f0f0;
     color: #fff;
-    text-decoration-line: none ;
 }
 
 /*-----------------------------------------------*/
@@ -324,6 +370,13 @@ a{
     align-items: center;
     width: 100%;
 }
+
+.top_adv{
+    background-color: black ;
+    color:white;
+
+}
+
 
 .first_row{
     display: flex;
@@ -437,8 +490,8 @@ a{
     background-color: #ffffff;
     color: #666666;
     /*border-top: 1px solid #c8c8c8;*/
-    padding: 40px 0px 0px;
-    margin: 25px 0px 0px;
+    padding: 40px 0 0;
+    margin: 25px 0 0;
 }
 .footer a{
     color: #666666;
@@ -451,7 +504,7 @@ a{
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    padding: 0px 0px 40px;
+    padding: 0 0 40px;
 }
 
 .summary_footer{
@@ -459,7 +512,7 @@ a{
     font-size: 16px;
 }
 details li{
-    padding: 2px 0px;
+    padding: 2px 0;
     font-size: 14px;
 }
 
@@ -482,10 +535,16 @@ details li{
 }
 
 
-#cookies_btn{
+.cookies_button{
+    cursor: pointer;
     background-color: #f0f0f0;
-    padding : 9.6px 24px;
+    padding : 10px 24px;
     border : 1px solid black;
+    font-weight: bold;
+}
+.cookies_button:hover{
+    background-color: white;
+    color: blue;
 }
 
 /*-----------------------------------------------*/
@@ -501,14 +560,27 @@ details li{
     .drop_weather{
         width: 100%;
     }
+
+
     #Set_weather_li{
-        display: block;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .back{
+        display: flex;
+    }
+
+    .sub_menu{
+        z-index: 20;
+    }
+    .sub_menu{
+        z-index: 30;
     }
 
     .logo{
         display :flex;
-
-        justify-self: left;
     }
     .big_logo{
         display: none;
@@ -520,18 +592,10 @@ details li{
     .subscribe_button{
         font-size: 0.8em;
         padding: 6px 15px;
-
     }
 
     .sign_in_text{
         display: none;
     }
-
-
-    /*.drop_login{
-        width: 100%;
-    }*/
-
-
 
 }
